@@ -1,3 +1,4 @@
+
 /***************************************************************************
    Copyright 2015 OSIsoft, LLC.
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -10,8 +11,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  ***************************************************************************/
+
 /********************************************************
- getAjax
  Helper function for handling CORS API requests with 
  kerberos authentication via Ajax.
 
@@ -61,7 +62,6 @@ function populateDropdown() {
         catch (e) {
             console.log("Exception caught: " + e);
         }
-
     });
 }
 
@@ -155,8 +155,12 @@ function linkPrevious(next_link) {
     previous_link = next_link.substring(0, (next_link.search(/&start=*/)));
     start_index = start_index.substring((start_index.search(/=/) + 1), start_index.length);
 
+    // grab the count from the previous_link for calculation
+    var count_val = previous_link.substring((previous_link.search(/&count=*/)), (previous_link.length));
+    count_val = count_val.substring((count_val.search(/=/) + 1), count_val.length);
+
     // previous page is (next_link.start - (2 * count)). One step forward, 2 steps back.
-    var start_field = Number(start_index) - (2 * (10));
+    var start_field = Number(start_index) - (2 * (Number(count_val)));
 
     // If the start field is greater than 0, then there is a previous page, 
     //otherwise leave alone as a link to first page.
@@ -172,6 +176,7 @@ function linkPrevious(next_link) {
 function buttonClicked(button_type, previous_query){
     var query_url = "";
 
+    // Create Indexed Search query based on behavior.
     switch (button_type) {
         case "Next":
             query_url = previous_query.Links.Next;
@@ -187,7 +192,7 @@ function buttonClicked(button_type, previous_query){
             break;
     }
 
-    //replace on the supplied link to clean up the url
+    //decode the supplied link to clean up the url for API call
     query_url = decodeURIComponent(query_url);
     indexedSearchQuery(query_url);
 }
