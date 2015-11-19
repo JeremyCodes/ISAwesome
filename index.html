@@ -22,11 +22,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>My Awesome Indexed Search Web App</h1>
-
-    <!--<div class="form-group">
-        <input type="text" class="form-control" id="usr">
-    </div>-->
+    <h1>My Awesome PI Web API Indexed Search Web App</h1>
 
     <div class="container">
         <div class="dropdown">
@@ -41,7 +37,7 @@
             </div>
         </div>
 
-
+    <!-- Table for dsiplaying -->
     <div class="container2">
         <table class="table table-striped" id="table-results">
             <thead>
@@ -49,9 +45,9 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Score</th>
-                    <th>Value</th>
                 </tr>
             </thead>
+            <!-- Placeholder table body. Will be deleted on initialization unless there is an error. -->
             <tbody>
                 <tr>
                     <td>Placeholder</td>
@@ -70,17 +66,18 @@
                 </tr>
             </tbody>
         </table>
-        <!--<input class="btn btn-default" type="button" value="First">
-        <input class="btn btn-default" type="button" value="Next">
-        <input class="btn btn-default" type="button" value="Last">-->
     </div>
 
+    <!-- Buttons for interacting-->
     <div class="container3">
         <input class="btn btn-default" type="button" value="First">
+        <input class="btn btn-default" type="button" value="Previous">
         <input class="btn btn-default" type="button" value="Next">
         <input class="btn btn-default" type="button" value="Last">
     </div>
     <script src="index.js"></script>
 </body>
 </html>
+
+
 
