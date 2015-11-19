@@ -13,6 +13,7 @@
  ***************************************************************************/
 
 /********************************************************
+ getAjax:
  Helper function for handling CORS API requests with 
  kerberos authentication via Ajax.
 
@@ -163,7 +164,7 @@ function linkPrevious(next_link) {
     var start_field = Number(start_index) - (2 * (Number(count_val)));
 
     // If the start field is greater than 0, then there is a previous page, 
-    //otherwise leave alone as a link to first page.
+    // otherwise leave alone as a link to first page.
     if (start_field >= 10) {
         previous_link += "&start=" + start_field;
     }
@@ -192,7 +193,7 @@ function buttonClicked(button_type, previous_query){
             break;
     }
 
-    //decode the supplied link to clean up the url for API call
+    // Decode the supplied link to clean up the url for API call
     query_url = decodeURIComponent(query_url);
     indexedSearchQuery(query_url);
 }
